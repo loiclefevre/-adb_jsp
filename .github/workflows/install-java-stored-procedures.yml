@@ -9,13 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: "Call ORDS API"
-          uses: indiesdev/curl@v1.1
-          id: api
-          with:
+      - name: Call ORDS API
+        uses: indiesdev/curl@v1.1
+        id: api
+        with:
             url: https://g04882e973a17cf-owt3pm267tef1jhy.adb.eu-paris-1.oraclecloudapps.com/ords/admin/deployer/deploy
             method: "POST"
             accept: 200
             log-response: true
-      - name: "Log response"
-          run: echo ${{ steps.api.outputs.response }}
+      - name: Log response
+        run: echo ${{ steps.api.outputs.response }}
