@@ -16,6 +16,7 @@ jobs:
             url: https://g04882e973a17cf-owt3pm267tef1jhy.adb.eu-paris-1.oraclecloudapps.com/ords/admin/deployer/deploy
             method: "POST"
             accept: 200
+            timeout: 10000
             log-response: true
       - name: Log response
         run: echo ${{ steps.api.outputs.response }}
