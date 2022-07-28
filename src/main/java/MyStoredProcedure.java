@@ -1,7 +1,5 @@
 //import java.sql.SQLException;
 
-import java.sql.SQLException;
-
 public class MyStoredProcedure {
 	public static String main(String name) /*throws SQLException*/ {
 /*		try (Connection c = DriverManager.getConnection("jdbc:default:connection:")) {
