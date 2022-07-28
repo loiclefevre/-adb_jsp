@@ -1,3 +1,5 @@
+package com.oracle.adb.jsp;
+
 import java.sql.SQLException;
 
 public class MyStoredProcedure {
