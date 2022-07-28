@@ -1,2 +1,3 @@
 # Autonomous Database Java Stored Procedure
 
+```ALTER USER ADMIN ENABLE EDITIONS FOR PROCEDURE, FUNCTION, PACKAGE;```

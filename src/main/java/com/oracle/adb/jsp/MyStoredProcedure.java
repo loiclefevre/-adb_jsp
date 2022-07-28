@@ -15,7 +15,7 @@ public class MyStoredProcedure {
 			try (Statement s = c.createStatement()) {
 				try (ResultSet r = s.executeQuery("SELECT current_date FROM dual")) {
 					if (r.next()) {
-						return String.format("Hello %s, fyi today is %s!",
+						return String.format("Hello %s :) For your information today is %s!",
 								name == null ? "World" : name, r.getString(1));
 					}
 				}
