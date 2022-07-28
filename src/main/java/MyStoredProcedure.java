@@ -1,5 +1,3 @@
-package com.oracle.adb.jsp;
-
 //import java.sql.SQLException;
 
 import java.sql.SQLException;
