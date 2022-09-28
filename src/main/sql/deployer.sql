@@ -8,6 +8,9 @@ CREATE OR REPLACE PROCEDURE deploy_code AS
     l_cursor NUMBER;
 
     l_last_edition VARCHAR2(4000);
+
+    edition_already_exist exception;
+    PRAGMA EXCEPTION_INIT(edition_already_exist, -955);
 BEGIN
     select object_name into l_last_edition
     from all_objects
@@ -41,7 +44,12 @@ BEGIN
                 );
             -- DBMS_OUTPUT.put_line('File content: ' || l_file_content);
 
-            execute immediate 'create edition ' || c.commit_id || ' as child of ' || l_last_edition;
+            begin
+               execute immediate 'create edition ' || c.commit_id || ' as child of ' || l_last_edition;
+            exception
+                when edition_already_exist then null;
+                when others then raise;
+            end;
 
             -- dbms_output.put_line('create or replace and compile java source named "' || c.fqcn || c.commit_id || '" AS ' || replace( l_file_content, c.class_name, c.class_name || c.commit_id));
             execute immediate 'create or replace and compile java source named "' || c.fqcn || c.commit_id || '" AS ' || replace( l_file_content, c.class_name, c.class_name || c.commit_id);
